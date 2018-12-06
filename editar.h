@@ -3,6 +3,6 @@
 #include <stdio.h>
 #include "struct.h"
 
-void EditarImovel(tImovel imovel[], int indice);
+void EditarImovel(tImovel *imovel, int indice, FILE *arquivo);
 
 #endif

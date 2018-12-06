@@ -1,6 +1,6 @@
 #include "editar.h"
 
-void EditarImovel(tImovel imovel[], int indice){
+void EditarImovel(tImovel *imovel, int indice, FILE *arquivo){
 
 	char op;
 
