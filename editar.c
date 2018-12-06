@@ -1,5 +1,4 @@
 #include "editar.h"
-#include "struct.h"
 
 void EditarImovel(tImovel imovel[], int indice){
 
@@ -22,7 +21,7 @@ void EditarImovel(tImovel imovel[], int indice){
 		printf("Rua: %s\n", imovel[indice].rua);
 		printf("Número: %d\n", imovel[indice].numero);
 		printf("Bairro: %s\n", imovel[indice].bairro);
-		printf("CEP: %d\n", imovel[indice].bairo);
+		printf("CEP: %d\n", imovel[indice].cep);
 		printf("Cidade: %s\n", imovel[indice].cidade);
 		printf("Valor: R$%.2lf\n", imovel[indice].valor);
 		printf("----------------\n");
