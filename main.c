@@ -1,8 +1,9 @@
 #include "editar.h"
 #include "struct.h"
+#include <string.h>
 
 int main(){
-	Imovel lista[MAX];
+	
 
 	return 0;
 }
