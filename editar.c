@@ -57,7 +57,7 @@ void EditarImovel(tImovel *imovel, int indice, FILE *arquivo){
 		printf("Novo Valor: ");
 		scanf("%lf%*c", imovel[indice].valor);
 
-		if(imovel[indice].operacao == 1){
+		/*if(imovel[indice].operacao == 1){
 			char operacao[] = "Alugar";
 		}else if(imovel[indice].operacao == 2){
 			char operacao[] = "Venda";
@@ -66,7 +66,7 @@ void EditarImovel(tImovel *imovel, int indice, FILE *arquivo){
 		printf("Operação Atual: %s\n", operacao);
 		printf("Novo Operação (1 - Alugar | 2 - Vender): ");
 		scanf("%d%*c", imovel[indice].operacao);
-		clear();
+		clear();*/
 
 		switch(imovel[indice].tipo){
 			case 1:
