@@ -35,7 +35,7 @@ void EditarImovel(tImovel *imovel, int indice, FILE *arquivo){
 
 		printf("Número Atual: %d\n", imovel[indice].numero);
 		printf("Novo Número: ");
-		scanf("%d%*c", imovel[indice].numero);
+		scanf("%d%*c", &imovel[indice].numero);
 		clear();
 
 		printf("Bairro Atual: %s\n", imovel[indice].bairro);
@@ -43,9 +43,9 @@ void EditarImovel(tImovel *imovel, int indice, FILE *arquivo){
 		fgets(imovel[indice].bairro, MAX, stdin);
 		clear();
 
-		printf("CEP Atual: %s\n", imovel[indice].cep);
+		printf("CEP Atual: %d\n", imovel[indice].cep);
 		printf("Novo CEP: ");
-		scanf("%d%*c", imovel[indice].cep);
+		scanf("%d%*c", &imovel[indice].cep);
 		clear();
 
 		printf("Cidade Atual: %s\n", imovel[indice].cidade);
@@ -53,9 +53,9 @@ void EditarImovel(tImovel *imovel, int indice, FILE *arquivo){
 		fgets(imovel[indice].cidade, MAX, stdin);
 		clear();
 
-		printf("Valor Atual: R$%s\n", imovel[indice].valor);
+		printf("Valor Atual: R$%.2lf\n", imovel[indice].valor);
 		printf("Novo Valor: ");
-		scanf("%lf%*c", imovel[indice].valor);
+		scanf("%lf%*c", &imovel[indice].valor);
 
 		/*if(imovel[indice].operacao == 1){
 			char operacao[] = "Alugar";
@@ -65,41 +65,41 @@ void EditarImovel(tImovel *imovel, int indice, FILE *arquivo){
 
 		printf("Operação Atual: %s\n", operacao);
 		printf("Novo Operação (1 - Alugar | 2 - Vender): ");
-		scanf("%d%*c", imovel[indice].operacao);
+		scanf("%d%*c", &imovel[indice].operacao);
 		clear();*/
 
 		switch(imovel[indice].tipo){
 			case 1:
 				printf("Pavimentos Atual: %d\n", imovel[indice].casa.pavimentos);
 				printf("Novo número de Pavimentos: ");
-				scanf("%d%*c", imovel[indice].casa.pavimentos);
+				scanf("%d%*c", &imovel[indice].casa.pavimentos);
 				clear();
 
 				printf("Quartos Atual: %d\n", imovel[indice].casa.quartos);
 				printf("Novo número de Quartos: ");
-				scanf("%d%*c", imovel[indice].casa.quartos);
+				scanf("%d%*c", &imovel[indice].casa.quartos);
 				clear();
 
 				printf("Quartos Atual: %.2lfm²\n", imovel[indice].casa.areaT);
 				printf("Nova Área do Terreno: ");
-				scanf("%lf%*c", imovel[indice].casa.areaT);
+				scanf("%lf%*c", &imovel[indice].casa.areaT);
 				clear();
 
 				printf("Quartos Atual: %.2lfm²\n", imovel[indice].casa.areaC);
 				printf("Nova Área Construída: ");
-				scanf("%lf%*c", imovel[indice].casa.areaC);
+				scanf("%lf%*c", &imovel[indice].casa.areaC);
 				clear();
 
 				break;
 			case 2:
 				printf("Área Atual: %.2lfm²\n", imovel[indice].ap.area);
 				printf("Nova Área: ");
-				scanf("%lf%*c", imovel[indice].ap.area);
+				scanf("%lf%*c", &imovel[indice].ap.area);
 				clear();
 
 				printf("Quartos Atual: %d\n", imovel[indice].ap.quartos);
 				printf("Novo número de Quartos: ");
-				scanf("%d%*c", imovel[indice].ap.quartos);
+				scanf("%d%*c", &imovel[indice].ap.quartos);
 				clear();
 
 				printf("Posição Atual: %s\n", imovel[indice].ap.posicao);
@@ -109,24 +109,24 @@ void EditarImovel(tImovel *imovel, int indice, FILE *arquivo){
 
 				printf("Andar Atual: %d\n", imovel[indice].ap.andar);
 				printf("Novo Andar: ");
-				scanf("%d%*c", imovel[indice].ap.andar);
+				scanf("%d%*c", &imovel[indice].ap.andar);
 				clear();
 
 				printf("Condomínio Atual: R$%.2lf\n", imovel[indice].ap.condominio);
 				printf("Novo valor de Condomínio: ");
-				scanf("%lf%*c", imovel[indice].ap.condominio);
+				scanf("%lf%*c", &imovel[indice].ap.condominio);
 				clear();
 
 				printf("Garagem Atual: %d\n", imovel[indice].ap.vagas);
 				printf("Novo número de vagas de Garagem: ");
-				scanf("%d%*c", imovel[indice].ap.vagas);
+				scanf("%d%*c", &imovel[indice].ap.vagas);
 				clear();
 
 				break;
 			case 3:
 				printf("Área Atual: %.2lfm²\n", imovel[indice].terreno.area);
 				printf("Nova Área: ");
-				scanf("%lf%*c", imovel[indice].terreno.area);
+				scanf("%lf%*c", &imovel[indice].terreno.area);
 				clear();
 
 				break;

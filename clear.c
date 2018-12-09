@@ -3,7 +3,7 @@
 void clear(){
 	#ifdef OS_Windows
 	 /* Codigo Windows */
-	    system("cls");
+	 	system("cls");
 	#else
 	 /* Codigo GNU/Linux */
 	    system("clear");
