@@ -3,11 +3,15 @@
 #include "clear.h"
 #include <string.h>
 
+
 int main(){
 	tImovel imovel[100];
 	FILE *arquivo;
+	char url[] = "database.txt";
 
-	EditarImovel(imovel, 0, arquivo);
+	arquivo = fopen(url, "a+b");
+
+	fclose(arquivo);
 
 	return 0;
 }
