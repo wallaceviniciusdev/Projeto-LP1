@@ -1,41 +1,44 @@
 #ifndef STRUCT_H_
 #define STRUCT_H_
 #define MAX 255
-#include "clear.h"
+#define MAX_IMO 100
+#define FALSE 0
+#define TRUE 1
 
-typedef struct Casa{
-	int pavimentos;
-	int quartos;
-	double areaT;
-	double areaC;
+typedef struct {
+    int numPav;
+    int numQuart;
+    double areaT;
+    double areaC;
 }tCasa;
 
-typedef struct Apartamento{
-	double area;
-	int quartos;
-	char posicao[MAX];
-	int andar;
-	double condominio;
-	int vagas;
+typedef struct {
+    double area;
+    int numQuart;
+    int posicao[MAX];
+    int andar;
+    double valorCon;
+    int garagem;
 }tAp;
 
-typedef struct Terreno{
-	double area;
-}tTerreno;
+typedef struct {
+    double area;
+}tTerr;
 
-typedef struct Imovel{
-	char titulo[MAX];
-	char rua[MAX];
-	int numero;
-	char bairro[MAX];
-	int cep;
-	char cidade[MAX];
-	double valor;
-	int operacao;
-	int tipo;
-	tCasa casa;
-	tAp ap;
-	tTerreno terreno;
+typedef struct{
+    int verif;
+    char tipo[MAX];
+    char titulo[MAX];
+    char rua[MAX];
+    char cidade[MAX];
+    char bairro[MAX];
+    int num;
+    int cep;
+    double valor;
+    int operacao;
+    tCasa casa;
+    tAp ap;
+    tTerr ter;
 }tImovel;
 
-#endif
+#endif // STRUCT_H_
