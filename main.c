@@ -6,7 +6,7 @@
 tImovel imovel[MAX_IMO];
 
 int main(){
-    int i, opcao;
+    int i, opcao;            
 
     for(i = 0; i < MAX_IMO; i++){
         imovel[i].verif = FALSE;

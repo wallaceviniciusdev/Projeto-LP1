@@ -35,7 +35,7 @@ void Editar(tImovel *imovel){
             printf("\n\n\t\tIMOVEL A EDITAR:\n\n");
             Todos(i, imovel);
 
-            printf("\t\tDigite um novo Titulo: ");
+            printf("\n\t\tDigite um novo Titulo: ");
             fgets(string, MAX, stdin);
             strcpy(imovel[i].titulo, string);
 
@@ -117,9 +117,14 @@ void Editar(tImovel *imovel){
         }
     }
 
-    printf("Tem certeza de que quer editar este imovel?\n1 - Sim\n0 - Nao\nDigite sua opcao: ");
+    printf("\n\n\t\tTem certeza de que quer editar este imovel?\n\t\t1 - Sim\n\t\t0 - Nao\n\t\tDigite sua opcao: ");
     scanf("%d", &op);
     if(op == 1){
         Salvar(imovel);
+    }else{
+        printf("\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+        printf("\n\t\t\xb3\tNenhum resultado encontrado                 \xb3");
+        printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
+        system("cls");
     }
 }

@@ -8,7 +8,6 @@ void Salvar(tImovel *imovel){
         printf("Erro ao abrir o arquivo!");
     }
 
-    fseek(file, 0, SEEK_END);
     for(i = 0; i < MAX_IMO; i++){
         if(imovel[i].casa.areaC != 0 || imovel[i].ap.area != 0 || imovel[i].ter.area != 0){
             system("cls");
@@ -38,6 +37,8 @@ void Salvar(tImovel *imovel){
                 fprintf(file, "%.2lf\n", imovel[i].ter.area);
             }
         }
+	fseek(file, 0, SEEK_END);
     }
+
     fclose(file);
 }

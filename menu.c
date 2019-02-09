@@ -163,8 +163,6 @@ void Menu(tImovel *imovel){
                 printf("\n\n\t\tCarregando...\n");
                 system("cls");
                 goto Inicio;
-            }else if(opcao == 0){
-                return 0;
             }
         }
 }
