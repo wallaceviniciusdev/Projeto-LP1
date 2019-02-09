@@ -36,7 +36,10 @@ void Listagem(tImovel *imovel){
         }else if(!strcmp(imovel[i].tipo, "CASA\n")){
             fscanf(file, "%d %d %lf %lf", &imovel[i].casa.numPav, &imovel[i].casa.numQuart, &imovel[i].casa.areaT, &imovel[i].casa.areaC);
         }else if(!strcmp(imovel[i].tipo, "APARTAMENTO\n")){
-            fscanf(file, "%lf %d %s %d %lf %d", &imovel[i].ap.area, &imovel[i].ap.numQuart, &imovel[i].ap.posicao, &imovel[i].ap.andar, &imovel[i].ap.valorCon, &imovel[i].ap.garagem);
+            fscanf(file, "%lf %d%*c\n", &imovel[i].ap.area, &imovel[i].ap.numQuart);
+            fgets(imovel[i].ap.posicao, MAX, file);
+            fscanf(file, "%d", &imovel[i].ap.andar);
+            fscanf(file, "%lf %d", &imovel[i].ap.valorCon, &imovel[i].ap.garagem);
         }
         i++;
     }
@@ -46,35 +49,44 @@ void Listagem(tImovel *imovel){
 
 void Todos(int i, tImovel *imovel){
     if(imovel[i].verif == TRUE){
-        if(i == 0){
-            printf("\n\n\t\t\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\n");
-        }
-        printf("\t\t%s", imovel[i].tipo);
-        printf("\t\tTitulo: %s", imovel[i].titulo);
-        printf("\t\tRua: %s", imovel[i].rua);
-        printf("\t\tCidade: %s", imovel[i].cidade);
-        printf("\t\tBairro: %s", imovel[i].bairro);
-        printf("\t\tNumero: %d\n", imovel[i].num);
-        printf("\t\tCEP: %d\n", imovel[i].cep);
-        printf("\t\tValor: R$%.2lf\n", imovel[i].valor);
-        printf("\t\tOperacao: %s\n", imovel[i].operacao ? "Venda" : "Aluguel");
         if(!strcmp("CASA\n", imovel[i].tipo)){
-            printf("\t\tNumero de Pavimentos: %d\n", imovel[i].casa.numPav);
-            printf("\t\tNumero de Quartos: %d\n", imovel[i].casa.numQuart);
-            printf("\t\tArea do Terreno: %.2lfm^2\n", imovel[i].casa.areaT);
-            printf("\t\tArea Construida: %.2lfm^2\n", imovel[i].casa.areaC);
+            printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+            printf("\n\t\t\xb3                         CASA                        \xb3");
+            printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
         }else if(!strcmp("APARTAMENTO\n", imovel[i].tipo)){
-            printf("\t\tArea: %.2lfm^2\n", imovel[i].ap.area);
-            printf("\t\tNumero de Quartos: %d\n", imovel[i].ap.numQuart);
-            RemoverN(imovel[i].ap.posicao);
-            printf("\t\tPosicao: %s\n", imovel[i].ap.posicao);
-            printf("\t\tAndar: %d\n", imovel[i].ap.andar);
-            printf("\t\tValor do Condominio: R$%.2lf\n", imovel[i].ap.valorCon);
-            printf("\t\tNumero de Vagas de Garagem: %d\n", imovel[i].ap.garagem);
+            printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+            printf("\n\t\t\xb3                      APARTAMENTO                    \xb3");
+            printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
         }else if(!strcmp("TERRENO\n", imovel[i].tipo)){
-            printf("\t\tArea: %.2lfm^2\n", imovel[i].ter.area);
+            printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+            printf("\n\t\t\xb3                        TERRENO                      \xb3");
+            printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
         }
-        printf("\t\t\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\n");
+        printf("\t\t\tTitulo: %s", imovel[i].titulo);
+        printf("\t\t\tRua: %s", imovel[i].rua);
+        printf("\t\t\tCidade: %s", imovel[i].cidade);
+        printf("\t\t\tBairro: %s", imovel[i].bairro);
+        printf("\t\t\tNumero: %d\n", imovel[i].num);
+        printf("\t\t\tCEP: %d\n", imovel[i].cep);
+        printf("\t\t\tValor: R$%.2lf\n", imovel[i].valor);
+        printf("\t\t\tOperacao: %s\n", imovel[i].operacao ? "Venda" : "Aluguel");
+        if(!strcmp("CASA\n", imovel[i].tipo)){
+            printf("\t\t\tNumero de Pavimentos: %d\n", imovel[i].casa.numPav);
+            printf("\t\t\tNumero de Quartos: %d\n", imovel[i].casa.numQuart);
+            printf("\t\t\tArea do Terreno: %.2lfm^2\n", imovel[i].casa.areaT);
+            printf("\t\t\tArea Construida: %.2lfm^2\n", imovel[i].casa.areaC);
+        }else if(!strcmp("APARTAMENTO\n", imovel[i].tipo)){
+            printf("\t\t\tArea: %.2lfm^2\n", imovel[i].ap.area);
+            printf("\t\t\tNumero de Quartos: %d\n", imovel[i].ap.numQuart);
+            printf("\t\t\tPosicao: %s", imovel[i].ap.posicao);
+            printf("\t\t\tAndar: %d\n", imovel[i].ap.andar);
+            printf("\t\t\tValor do Condominio: R$%.2lf\n", imovel[i].ap.valorCon);
+            printf("\t\t\tNumero de Vagas de Garagem: %d\n", imovel[i].ap.garagem);
+        }else if(!strcmp("TERRENO\n", imovel[i].tipo)){
+            printf("\t\t\tArea: %.2lfm^2\n", imovel[i].ter.area);
+        }
+        printf("\t\t\xb3                                                     \xb3\n");
+        printf("\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
     }
 }
 

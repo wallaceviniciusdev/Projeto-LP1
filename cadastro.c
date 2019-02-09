@@ -1,30 +1,38 @@
 #include "cadastro.h"
 
 void Imovel(int i, tImovel *imovel){
-    printf("\n\n\t\tTitulo: ");
+    printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Cadastro \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+    printf("\n\n\t\t\tTitulo: ");
     fgets(imovel[i].titulo, MAX, stdin);
 
-    printf("\t\tRua: ");
+    printf("\t\t\tRua: ");
     fgets(imovel[i].rua, MAX, stdin);
 
-    printf("\t\tCidade: ");
+    printf("\t\t\tCidade: ");
     fgets(imovel[i].cidade, MAX, stdin);
 
-    printf("\t\tBairro: ");
+    printf("\t\t\tBairro: ");
     fgets(imovel[i].bairro, MAX, stdin);
 
-    printf("\t\tNumero: ");
+    printf("\t\t\tNumero: ");
     scanf("%d", &imovel[i].num);
 
-    printf("\t\tCEP: ");
+    printf("\t\t\tCEP: ");
     scanf("%d", &imovel[i].cep);
 
-    printf("\t\tValor: ");
+    printf("\t\t\tValor: ");
     scanf("%lf", &imovel[i].valor);
 
-    printf("\t\t0 - Alugar\n\t\t1 - Vender\n");
-    printf("\t\tTipo de Opercao: ");
-    scanf("%d", &imovel[i].operacao);
+    Operacao:
+        printf("\t\t\t0 - Alugar\n\t\t\t1 - Vender\n");
+        printf("\t\t\tTipo de Opercao: ");
+        scanf("%d", &imovel[i].operacao);
+        if(imovel[i].operacao > 1 || imovel[i].operacao < 0){
+            printf("\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+            printf("\n\t\t\xb3\tOperecao Invalida, tente novamente!                              \xb3");
+            printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
+            goto Operacao;
+        }
 }
 
 void Cadastro(int tipo, tImovel *imovel){
@@ -43,17 +51,17 @@ void Cadastro(int tipo, tImovel *imovel){
 
                 Imovel(i, imovel);
 
-                printf("\t\tNumero de Pavimentos: ");
+                printf("\t\t\tNumero de Pavimentos: ");
                 scanf("%d", &imovel[i].casa.numPav);
 
-                printf("\t\tNumero de Quartos: ");
+                printf("\t\t\tNumero de Quartos: ");
                 scanf("%d", &imovel[i].casa.numQuart);
 
                 Area:
-                    printf("\t\tArea do Terreno: ");
+                    printf("\t\t\tArea do Terreno: ");
                     scanf("%lf", &imovel[i].casa.areaT);
 
-                    printf("\t\tArea Construida: ");
+                    printf("\t\t\tArea Construida: ");
                     scanf("%lf", &imovel[i].casa.areaC);
 
                     if(imovel[i].casa.areaC > imovel[i].casa.areaT){
@@ -78,23 +86,23 @@ void Cadastro(int tipo, tImovel *imovel){
 
                 Imovel(i, imovel);
 
-                printf("\t\tArea: ");
+                printf("\t\t\tArea: ");
                 scanf("%lf", &imovel[i].ap.area);
 
-                printf("\t\tNumero de Quartos: ");
+                printf("\t\t\tNumero de Quartos: ");
                 scanf("%d", &imovel[i].ap.numQuart);
                 getchar();
 
-                printf("\t\tPosicao: ");
+                printf("\t\t\tPosicao: ");
                 fgets(imovel[i].ap.posicao, MAX, stdin);
 
-                printf("\t\tAndar: ");
+                printf("\t\t\tAndar: ");
                 scanf("%d", &imovel[i].ap.andar);
 
-                printf("\t\tValor do Condominio: ");
+                printf("\t\t\tValor do Condominio: ");
                 scanf("%lf", &imovel[i].ap.valorCon);
 
-                printf("\t\tVagas na Garagem: ");
+                printf("\t\t\tVagas na Garagem: ");
                 scanf("%d", &imovel[i].ap.garagem);
                 break;
             }
@@ -112,12 +120,19 @@ void Cadastro(int tipo, tImovel *imovel){
 
                 Imovel(i, imovel);
 
-                printf("\t\tArea: ");
+                printf("\t\t\tArea: ");
                 scanf("%lf", &imovel[i].ter.area);
                 break;
             }
         }
     }
+    printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
 
-    Salvar(imovel);
+    int op;
+    printf("\n\n\t\tTem certeza de que quer CADASTRAR este imovel?\n\t\t1 - Sim\n\t\t0 - Nao\n\t\tDigite sua opcao: ");
+    scanf("%d", &op);
+
+    if(op == 1){
+        Salvar(imovel);
+    }
 }

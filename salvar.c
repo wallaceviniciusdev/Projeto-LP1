@@ -1,13 +1,14 @@
 #include "salvar.h"
 
 void Salvar(tImovel *imovel){
-    int op, i;
+    int i;
     FILE *file;
     file = fopen("arquivo.txt", "w");
     if(!file){
         printf("Erro ao abrir o arquivo!");
     }
 
+    fseek(file, 0, SEEK_END);
     for(i = 0; i < MAX_IMO; i++){
         if(imovel[i].casa.areaC != 0 || imovel[i].ap.area != 0 || imovel[i].ter.area != 0){
             system("cls");
