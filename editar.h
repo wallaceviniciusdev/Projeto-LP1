@@ -2,7 +2,9 @@
 #define EDITAR_H_
 #include <stdio.h>
 #include "struct.h"
+#include "salvar.h"
+#include "busca.h"
 
-void EditarImovel(tImovel *imovel, int indice, FILE *arquivo);
+void Editar(tImovel *imovel);
 
-#endif
+#endif // EDITAR_H_

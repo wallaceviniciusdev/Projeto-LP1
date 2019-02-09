@@ -1,7 +1,7 @@
 #include "menu.h"
 
 int Opcoes(){
-        int opcao;
+    int opcao;
 
     printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Menu Principal \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
     printf("\n\t\t\xb3                                            \xb3");
@@ -9,7 +9,6 @@ int Opcoes(){
     printf("\n\t\t\xb3\t2. Buscar                            \xb3");
     printf("\n\t\t\xb3\t3. Editar                            \xb3");
     printf("\n\t\t\xb3\t4. Excluir                           \xb3");
-    printf("\n\t\t\xb3\t5. Salvar                            \xb3");
     printf("\n\t\t\xb3\t0. Sair                              \xb3");
     printf("\n\t\t\xb3                                            \xb3");
     printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
@@ -19,7 +18,7 @@ int Opcoes(){
     return opcao;
 }
 
-int Menu(){
+int Submenu(){
     int opcao = Opcoes();
     int submenu;
     system("cls");
@@ -52,11 +51,9 @@ int Menu(){
         break;
     case 3:
         submenu = 3;
-        printf("Editar");
         break;
     case 4:
         submenu = 4;
-        printf("Excluir");
         break;
     case 5:
         submenu = 5;
@@ -67,4 +64,82 @@ int Menu(){
     }
 
     return submenu;
+}
+
+void Menu(tImovel *imovel){
+    int opcao;
+    Inicio:
+        opcao = Submenu();
+        while(opcao){
+            switch(opcao){
+            case 1:
+                printf("\n\t\tTipo de imovel para cadastar: ");
+                scanf("%d", &opcao);
+                if(opcao == 1){
+                    system("cls");
+                    Cadastro(1, imovel);
+                    break;
+                }else if(opcao == 2){
+                    system("cls");
+                    Cadastro(2, imovel);
+                    break;
+                }else if(opcao == 3){
+                    system("cls");
+                    Cadastro(3, imovel);
+                    break;
+                }else if(opcao == 0){
+                    system("cls");
+                    goto Inicio;
+                }
+            case 2:
+                printf("\n\t\tTipo de busca: ");
+                scanf("%d", &opcao);
+                if(opcao == 0){
+                    system("cls");
+                    goto Inicio;
+                }else if(opcao == 1){
+                    system("cls");
+                    Busca(1, imovel);
+                    break;
+                }else if(opcao == 2){
+                    system("cls");
+                    Busca(2, imovel);
+                    break;
+                }else if(opcao == 3){
+                    system("cls");
+                    Busca(3, imovel);
+                    break;
+                }else if(opcao == 4){
+                    system("cls");
+                    Busca(4, imovel);
+                    break;
+                }else if(opcao == 5){
+                    system("cls");
+                    Busca(5, imovel);
+                    break;
+                }else if(opcao == 6){
+                    system("cls");
+                    Busca(6, imovel);
+                    break;
+                }
+                break;
+            case 3:
+                system("cls");
+                Editar(imovel);
+                break;
+            case 4:
+                system("cls");
+                Excluir(imovel);
+                break;
+            }
+
+            printf("\n\t\t1 - Fazer outra operacao\n\t\t0 - Sair\n\t\tDigite uma opcao: ");
+            scanf("%d", &opcao);
+            if(opcao == 1){
+                system("cls");
+                goto Inicio;
+            }else if(opcao == 0){
+                return 0;
+            }
+        }
 }

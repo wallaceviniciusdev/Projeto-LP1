@@ -2,6 +2,7 @@
 #define CADASTRO_H_
 #include <stdio.h>
 #include "struct.h"
+#include "salvar.h"
 #include <string.h>
 #include <ctype.h>
 

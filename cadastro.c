@@ -1,5 +1,32 @@
 #include "cadastro.h"
 
+void Imovel(int i, tImovel *imovel){
+    printf("\n\n\t\tTitulo: ");
+    fgets(imovel[i].titulo, MAX, stdin);
+
+    printf("\t\tRua: ");
+    fgets(imovel[i].rua, MAX, stdin);
+
+    printf("\t\tCidade: ");
+    fgets(imovel[i].cidade, MAX, stdin);
+
+    printf("\t\tBairro: ");
+    fgets(imovel[i].bairro, MAX, stdin);
+
+    printf("\t\tNumero: ");
+    scanf("%d", &imovel[i].num);
+
+    printf("\t\tCEP: ");
+    scanf("%d", &imovel[i].cep);
+
+    printf("\t\tValor: ");
+    scanf("%lf", &imovel[i].valor);
+
+    printf("\t\t0 - Alugar\n\t\t1 - Vender\n");
+    printf("\t\tTipo de Opercao: ");
+    scanf("%d", &imovel[i].operacao);
+}
+
 void Cadastro(int tipo, tImovel *imovel){
     int i;
 
@@ -10,34 +37,11 @@ void Cadastro(int tipo, tImovel *imovel){
 
                 imovel[i].verif = TRUE;
 
-                char tipo[] = "CASA";
+                char tipo[] = "CASA\n";
                 strcpy(imovel[i].tipo, tipo);
                 getchar();
 
-                printf("\n\n\t\tTitulo: ");
-                fgets(imovel[i].titulo, MAX, stdin);
-
-                printf("\t\tRua: ");
-                fgets(imovel[i].rua, MAX, stdin);
-
-                printf("\t\tCidade: ");
-                fgets(imovel[i].cidade, MAX, stdin);
-
-                printf("\t\tBairro: ");
-                fgets(imovel[i].bairro, MAX, stdin);
-
-                printf("\t\tNumero: ");
-                scanf("%d", &imovel[i].num);
-
-                printf("\t\tCEP: ");
-                scanf("%d", &imovel[i].cep);
-
-                printf("\t\tValor: ");
-                scanf("%lf", &imovel[i].valor);
-
-                printf("\t\t0 - Alugar\n\t\t1 - Vender\n");
-                printf("\t\tTipo de Opercao: ");
-                scanf("%d", &imovel[i].operacao);
+                Imovel(i, imovel);
 
                 printf("\t\tNumero de Pavimentos: ");
                 scanf("%d", &imovel[i].casa.numPav);
@@ -68,34 +72,11 @@ void Cadastro(int tipo, tImovel *imovel){
 
                 imovel[i].verif = TRUE;
 
-                char tipo[] = "APARTAMENTO";
+                char tipo[] = "APARTAMENTO\n";
                 strcpy(imovel[i].tipo, tipo);
                 getchar();
 
-                printf("\n\n\t\tTitulo: ");
-                fgets(imovel[i].titulo, MAX, stdin);
-
-                printf("\t\tRua: ");
-                fgets(imovel[i].rua, MAX, stdin);
-
-                printf("\t\tCidade: ");
-                fgets(imovel[i].cidade, MAX, stdin);
-
-                printf("\t\tBairro: ");
-                fgets(imovel[i].bairro, MAX, stdin);
-
-                printf("\t\tNumero: ");
-                scanf("%d", &imovel[i].num);
-
-                printf("\t\tCEP: ");
-                scanf("%d", &imovel[i].cep);
-
-                printf("\t\tValor: ");
-                scanf("%lf", &imovel[i].valor);
-
-                printf("\t\t0 - Alugar\n\t\t1 - Vender\n");
-                printf("\t\tTipo de Opercao: ");
-                scanf("%d", &imovel[i].operacao);
+                Imovel(i, imovel);
 
                 printf("\t\tArea: ");
                 scanf("%lf", &imovel[i].ap.area);
@@ -125,34 +106,11 @@ void Cadastro(int tipo, tImovel *imovel){
 
                 imovel[i].verif = TRUE;
 
-                char tipo[] = "TERRENO";
+                char tipo[] = "TERRENO\n";
                 strcpy(imovel[i].tipo, tipo);
                 getchar();
 
-                printf("\n\n\t\tTitulo: ");
-                fgets(imovel[i].titulo, MAX, stdin);
-
-                printf("\t\tRua: ");
-                fgets(imovel[i].rua, MAX, stdin);
-
-                printf("\t\tCidade: ");
-                fgets(imovel[i].cidade, MAX, stdin);
-
-                printf("\t\tBairro: ");
-                fgets(imovel[i].bairro, MAX, stdin);
-
-                printf("\t\tNumero: ");
-                scanf("%d", &imovel[i].num);
-
-                printf("\t\tCEP: ");
-                scanf("%d", &imovel[i].cep);
-
-                printf("\t\tValor: ");
-                scanf("%lf", &imovel[i].valor);
-
-                printf("\t\t0 - Alugar\n\t\t1 - Vender\n");
-                printf("Tipo de Opercao: ");
-                scanf("%d", &imovel[i].operacao);
+                Imovel(i, imovel);
 
                 printf("\t\tArea: ");
                 scanf("%lf", &imovel[i].ter.area);
@@ -160,4 +118,6 @@ void Cadastro(int tipo, tImovel *imovel){
             }
         }
     }
+
+    Salvar(imovel);
 }

@@ -1,15 +1,25 @@
 #include "busca.h"
 
-void Maiusculo(char *string){
+void Minisculo(char *string){
     int i;
     for(i = 0; i < string[i]; i++){
-        string[i] = tolower(string[i]);
+        string[i] = toupper(string[i]);
     }
+}
+
+void RemoverN(char *string){
+    size_t ln = strlen(string) - 1;
+    if (*string && string[ln] == '\n')
+    string[ln] = '\0';
 }
 
 void Listagem(tImovel *imovel){
     FILE *file;
     file = fopen("arquivo.txt", "a+");
+
+    if(!file){
+        printf("O arquivo nao existe!\n");
+    }
 
     int i = 0;
 
@@ -34,25 +44,190 @@ void Listagem(tImovel *imovel){
     fclose(file);
 }
 
+void Todos(int i, tImovel *imovel){
+    if(imovel[i].verif == TRUE){
+        if(i == 0){
+            printf("\n\n\t\t\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\n");
+        }
+        printf("\t\t%s", imovel[i].tipo);
+        printf("\t\tTitulo: %s", imovel[i].titulo);
+        printf("\t\tRua: %s", imovel[i].rua);
+        printf("\t\tCidade: %s", imovel[i].cidade);
+        printf("\t\tBairro: %s", imovel[i].bairro);
+        printf("\t\tNumero: %d\n", imovel[i].num);
+        printf("\t\tCEP: %d\n", imovel[i].cep);
+        printf("\t\tValor: R$%.2lf\n", imovel[i].valor);
+        printf("\t\tOperacao: %s\n", imovel[i].operacao ? "Venda" : "Aluguel");
+        if(!strcmp("CASA\n", imovel[i].tipo)){
+            printf("\t\tNumero de Pavimentos: %d\n", imovel[i].casa.numPav);
+            printf("\t\tNumero de Quartos: %d\n", imovel[i].casa.numQuart);
+            printf("\t\tArea do Terreno: %.2lfm^2\n", imovel[i].casa.areaT);
+            printf("\t\tArea Construida: %.2lfm^2\n", imovel[i].casa.areaC);
+        }else if(!strcmp("APARTAMENTO\n", imovel[i].tipo)){
+            printf("\t\tArea: %.2lfm^2\n", imovel[i].ap.area);
+            printf("\t\tNumero de Quartos: %d\n", imovel[i].ap.numQuart);
+            RemoverN(imovel[i].ap.posicao);
+            printf("\t\tPosicao: %s\n", imovel[i].ap.posicao);
+            printf("\t\tAndar: %d\n", imovel[i].ap.andar);
+            printf("\t\tValor do Condominio: R$%.2lf\n", imovel[i].ap.valorCon);
+            printf("\t\tNumero de Vagas de Garagem: %d\n", imovel[i].ap.garagem);
+        }else if(!strcmp("TERRENO\n", imovel[i].tipo)){
+            printf("\t\tArea: %.2lfm^2\n", imovel[i].ter.area);
+        }
+        printf("\t\t\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\n");
+    }
+}
+
+void DisponiveisVenda(tImovel *imovel){
+    int i, op;
+    char tipo[MAX];
+
+    TipoImovel:
+        printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Venda \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+        printf("\n\t\t\xb3                                            \xb3");
+        printf("\n\t\t\xb3\t1. Casa                              \xb3");
+        printf("\n\t\t\xb3\t2. Apartamento                       \xb3");
+        printf("\n\t\t\xb3\t3. Terreno                           \xb3");
+        printf("\n\t\t\xb3                                            \xb3");
+        printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
+        printf("\n\t\tDigite o tipo de imovel: ");
+        scanf("%d", &op);
+
+    switch(op){
+    case 1:
+        strcpy(tipo, "CASA\n");
+        break;
+    case 2:
+        strcpy(tipo, "APARTAMENTO\n");
+        break;
+    case 3:
+        strcpy(tipo, "TERRENO\n");
+        break;
+    default:
+        printf("\n\n\t\tEscolha invalida!\n\n");
+        goto TipoImovel;
+        break;
+    }
+
+    printf("\n\n");
+    for(i = 0; i < MAX_IMO; i++){
+        if(imovel[i].operacao && !strcmp(imovel[i].tipo, tipo)){
+            Todos(i, imovel);
+        }
+    }
+}
+
+void DisponiveisAluguel(tImovel *imovel){
+    int i, op;
+    char tipo[MAX];
+
+    TipoImovel:
+        printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Venda \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+        printf("\n\t\t\xb3                                            \xb3");
+        printf("\n\t\t\xb3\t1. Casa                              \xb3");
+        printf("\n\t\t\xb3\t2. Apartamento                       \xb3");
+        printf("\n\t\t\xb3\t3. Terreno                           \xb3");
+        printf("\n\t\t\xb3                                            \xb3");
+        printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
+        printf("\n\t\tDigite o tipo de imovel: ");
+        scanf("%d", &op);
+
+    switch(op){
+    case 1:
+        strcpy(tipo, "CASA\n");
+        break;
+    case 2:
+        strcpy(tipo, "APARTAMENTO\n");
+        break;
+    case 3:
+        strcpy(tipo, "TERRENO\n");
+        break;
+    default:
+        printf("\n\n\t\tEscolha invalida!\n\n");
+        goto TipoImovel;
+        break;
+    }
+
+    printf("\n\n");
+    for(i = 0; i < MAX_IMO; i++){
+        if(!imovel[i].operacao && !strcmp(imovel[i].tipo, tipo)){
+            Todos(i, imovel);
+        }
+    }
+}
+
+void BuscaPorTitulo(tImovel *imovel){
+    int i;
+    char titulo[MAX];
+    char tituloAnterior[MAX];
+
+    getchar();
+    printf("\n\n\t\tDigite o titulo que deseja buscar: ");
+    fgets(titulo, MAX, stdin);
+    RemoverN(titulo);
+    Minisculo(titulo);
+
+    for(i = 0; i < MAX_IMO; i++){
+        strcpy(tituloAnterior, imovel[i].titulo);
+        RemoverN(tituloAnterior);
+        Minisculo(tituloAnterior);
+        if(!strcmp(titulo, tituloAnterior)){
+            Todos(i, imovel);
+        }
+    }
+}
+
+void BuscaPorBairro(tImovel *imovel){
+    int i;
+    char bairro[MAX];
+    char bairroAnterior[MAX];
+
+    getchar();
+    printf("\n\n\t\tDigite o bairro que deseja buscar: ");
+    fgets(bairro, MAX, stdin);
+    RemoverN(bairro);
+    Minisculo(bairro);
+
+    for(i = 0; i < MAX_IMO; i++){
+        strcpy(bairroAnterior, imovel[i].bairro);
+        RemoverN(bairroAnterior);
+        Minisculo(bairroAnterior);
+        if(!strcmp(bairro, bairroAnterior)){
+            Todos(i, imovel);
+        }
+    }
+}
+
+void ValorAcima(tImovel *imovel){
+    int i;
+    double valor;
+
+    printf("\n\n\t\tDigite um valor: ");
+    scanf("%lf", &valor);
+
+    for(i = 0; i < MAX_IMO; i++){
+        if(imovel[i].valor > valor){
+            Todos(i, imovel);
+        }
+    }
+}
+
 void Busca(int tipo, tImovel *imovel){
     int i;
-    Listagem(imovel);
-
     if(tipo == 1){
+        printf("\n\n");
         for(i = 0; i < MAX_IMO; i++){
-            if(imovel[i].verif == TRUE){
-                printf("VERIF: %d", imovel[i].verif);
-                printf("%s", imovel[i].tipo);
-                printf("Titulo: %s", imovel[i].titulo);
-                printf("Rua: %s", imovel[i].rua);
-                printf("Cidade: %s", imovel[i].cidade);
-                printf("Bairro: %s", imovel[i].bairro);
-                printf("Numero: %d\n", imovel[i].num);
-                printf("CEP: %d\n", imovel[i].cep);
-                printf("Valor: R$%.2lf\n", imovel[i].valor);
-                printf("Operacao: %s\n", imovel[i].operacao ? "Venda" : "Aluguel");
-                printf("\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\n");
-            }
+            Todos(i, imovel);
         }
+    }else if(tipo == 2){
+        DisponiveisVenda(imovel);
+    }else if(tipo == 3){
+        DisponiveisAluguel(imovel);
+    }else if(tipo == 4){
+        BuscaPorTitulo(imovel);
+    }else if(tipo == 5){
+        BuscaPorBairro(imovel);
+    }else if(tipo == 6){
+        ValorAcima(imovel);
     }
 }

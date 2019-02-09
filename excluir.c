@@ -3,26 +3,36 @@
 #include "salvar.h"
 
 void Excluir(tImovel *imovel){
-    Listagem(imovel);
+    int i, id = 0, op;
 
-    int i, id = 1, op;
+    char titulo[MAX];
+    char tituloAnterior[MAX];
 
+    printf("\n\n");
     for(i = 0; i < MAX_IMO; i++){
         if(imovel[i].verif == TRUE){
-            printf("ID: %d | Titulo: %s", id, imovel[i].titulo);
-            printf("\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\n");
-            id++;
+            printf("\t\tTitulo: %s", imovel[i].titulo);
+            printf("\t\t\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\n");
         }
     }
 
-    printf("Digite o ID do imovel que deseja excluir: ");
-    scanf("%d", &id);
-    printf("Tem certeza de que quer apagar este imovel?\n1 - Sim\n0 - Nao: ", imovel[id-1].titulo);
-    scanf("%d", &op);
-    if(op == 1){
-        imovel[id-1].verif = FALSE;
-        Salvar(imovel);
-        printf("ID: %d | Verif: %d\n", id-1, imovel[id-1].verif);
-        return 5;
+    getchar();
+    printf("\t\tDigite o TITULO do imovel que deseja editar: ");
+    fgets(titulo, MAX, stdin);
+    RemoverN(titulo);
+    Minisculo(titulo);
+
+    for(i = 0; i < MAX_IMO; i++){
+        strcpy(tituloAnterior, imovel[i].titulo);
+        RemoverN(tituloAnterior);
+        Minisculo(tituloAnterior);
+
+        if(!strcmp(tituloAnterior, titulo)){
+            printf("Tem certeza de que quer apagar %s?\n1 - Sim\n0 - Nao\nDigite sua opcao: ", tituloAnterior);
+            scanf("%d", &op);
+
+            imovel[i].verif = FALSE;
+            Salvar(imovel);
+        }
     }
 }

@@ -1,138 +1,123 @@
 #include "editar.h"
 
-void EditarImovel(tImovel *imovel, int indice, FILE *arquivo){
+void Editar(tImovel *imovel){
+    int i, op;
 
-	char op;
+    char string[MAX];
+    int inteiro;
+    double decimal;
 
-	printf("ID DO ITEM: %d\n", indice);
-	printf("----------------\n");
-	printf("Titulo: %s\n", imovel[indice].titulo);
-	printf("----------------\n");
+    char titulo[MAX];
+    char tituloAnterior[MAX];
 
-	printf("Você tem certeza de que quer editar este item? (s/n): ");
-	scanf("%c%*c", &op);
+    printf("\n\n");
+    for(i = 0; i < MAX_IMO; i++){
+        if(imovel[i].verif == TRUE){
+            printf("\t\tTitulo: %s", imovel[i].titulo);
+            printf("\t\t\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\n");
+        }
+    }
 
-	clear(); //limpa a tela
+    getchar();
+    printf("\t\tDigite o TITULO do imovel que deseja editar: ");
+    fgets(titulo, MAX, stdin);
+    RemoverN(titulo);
+    Minisculo(titulo);
 
-	if(op == 's' || op == 'S'){
-		printf("ID DO ITEM: %d\n", indice);
-		printf("----------------\n");
-		printf("Bairro: %s\n", imovel[indice].bairro);
-		printf("CEP: %d\n", imovel[indice].cep);
-		printf("Cidade: %s\n", imovel[indice].cidade);
-		printf("Valor: R$%.2lf\n", imovel[indice].valor);
-		printf("----------------\n");
+    for(i = 0; i < MAX_IMO; i++){
+        strcpy(tituloAnterior, imovel[i].titulo);
+        RemoverN(tituloAnterior);
+        Minisculo(tituloAnterior);
 
-		printf("Titulo Atual: %s\n", imovel[indice].titulo);
-		printf("Novo Título: ");
-		fgets(imovel[indice].titulo, MAX, stdin);
-		clear();
+        if(!strcmp(tituloAnterior, titulo)){
+            printf("\n\n\t\tIMOVEL A EDITAR:\n\n");
+            Todos(i, imovel);
 
-		printf("Rua Atual: %s\n", imovel[indice].rua);
-		printf("Nova Rua: ");
-		fgets(imovel[indice].rua, MAX, stdin);
-		clear();
+            printf("\t\tDigite um novo Titulo: ");
+            fgets(string, MAX, stdin);
+            strcpy(imovel[i].titulo, string);
 
-		printf("Número Atual: %d\n", imovel[indice].numero);
-		printf("Novo Número: ");
-		scanf("%d%*c", imovel[indice].numero);
-		clear();
+            printf("\t\tDigite uma nova Rua: ");
+            fgets(string, MAX, stdin);
+            strcpy(imovel[i].rua, string);
 
-		printf("Bairro Atual: %s\n", imovel[indice].bairro);
-		printf("Novo Bairro: ");
-		fgets(imovel[indice].bairro, MAX, stdin);
-		clear();
+            printf("\t\tDigite uma nova Cidade: ");
+            fgets(string, MAX, stdin);
+            strcpy(imovel[i].cidade, string);
 
-		printf("CEP Atual: %s\n", imovel[indice].cep);
-		printf("Novo CEP: ");
-		scanf("%d%*c", imovel[indice].cep);
-		clear();
+            printf("\t\tDigite um novo Bairro: ");
+            fgets(string, MAX, stdin);
+            strcpy(imovel[i].bairro, string);
 
-		printf("Cidade Atual: %s\n", imovel[indice].cidade);
-		printf("Nova Cidade: ");
-		fgets(imovel[indice].cidade, MAX, stdin);
-		clear();
+            printf("\t\tDigite um novo Numero: ");
+            scanf("%d", &inteiro);
+            imovel[i].num = inteiro;
 
-		printf("Valor Atual: R$%s\n", imovel[indice].valor);
-		printf("Novo Valor: ");
-		scanf("%lf%*c", imovel[indice].valor);
+            printf("\t\tDigite um novo CEP: ");
+            scanf("%d", &inteiro);
+            imovel[i].cep = inteiro;
 
-		/*if(imovel[indice].operacao == 1){
-			char operacao[] = "Alugar";
-		}else if(imovel[indice].operacao == 2){
-			char operacao[] = "Venda";
-		}
+            printf("\t\tDigite um novo Valor: ");
+            scanf("%lf", &decimal);
+            imovel[i].valor = decimal;
 
-		printf("Operação Atual: %s\n", operacao);
-		printf("Novo Operação (1 - Alugar | 2 - Vender): ");
-		scanf("%d%*c", imovel[indice].operacao);
-		clear();*/
+            printf("\t\t0 - Alugar\n\t\t1 - Vender\n");
+            printf("\t\tDigite uma nova Operacao: ");
+            scanf("%d", &inteiro);
+            imovel[i].operacao = inteiro;
 
-		switch(imovel[indice].tipo){
-			case 1:
-				printf("Pavimentos Atual: %d\n", imovel[indice].casa.pavimentos);
-				printf("Novo número de Pavimentos: ");
-				scanf("%d%*c", imovel[indice].casa.pavimentos);
-				clear();
+            if(!strcmp("CASA\n", imovel[i].tipo)){
+                printf("\t\tDigite um novo Numero de Pavimentos: ");
+                scanf("%d", &inteiro);
+                imovel[i].casa.numPav = inteiro;
 
-				printf("Quartos Atual: %d\n", imovel[indice].casa.quartos);
-				printf("Novo número de Quartos: ");
-				scanf("%d%*c", imovel[indice].casa.quartos);
-				clear();
+                printf("\t\tDigite um novo Numero de Quartos: ");
+                scanf("%d", &inteiro);
+                imovel[i].casa.numQuart = inteiro;
 
-				printf("Quartos Atual: %.2lfm²\n", imovel[indice].casa.areaT);
-				printf("Nova Área do Terreno: ");
-				scanf("%lf%*c", imovel[indice].casa.areaT);
-				clear();
+                printf("\t\tDigite uma nova Area do Terreno: ");
+                scanf("%lf", &decimal);
+                imovel[i].casa.areaT = decimal;
 
-				printf("Quartos Atual: %.2lfm²\n", imovel[indice].casa.areaC);
-				printf("Nova Área Construída: ");
-				scanf("%lf%*c", imovel[indice].casa.areaC);
-				clear();
+                printf("\t\tDigite uma nova Area Construida: ");
+                scanf("%lf", &decimal);
+                imovel[i].casa.areaC = decimal;
+            }else if(!strcmp("APARTAMENTO\n", imovel[i].tipo)){
+                printf("\t\tDigite uma nova Area: ");
+                scanf("%lf", &decimal);
+                imovel[i].ap.area = decimal;
 
-				break;
-			case 2:
-				printf("Área Atual: %.2lfm²\n", imovel[indice].ap.area);
-				printf("Nova Área: ");
-				scanf("%lf%*c", imovel[indice].ap.area);
-				clear();
+                printf("\t\tDigite um novo Numero de Quartos: ");
+                scanf("%d", &inteiro);
+                imovel[i].ap.numQuart = inteiro;
 
-				printf("Quartos Atual: %d\n", imovel[indice].ap.quartos);
-				printf("Novo número de Quartos: ");
-				scanf("%d%*c", imovel[indice].ap.quartos);
-				clear();
+                getchar();
+                printf("\t\tDigite uma nova Posicao: ");
+                fgets(string, MAX, stdin);
+                strcpy(imovel[i].ap.posicao, string);
 
-				printf("Posição Atual: %s\n", imovel[indice].ap.posicao);
-				printf("Nova Posição: ");
-				fgets(imovel[indice].ap.posicao, MAX, stdin);
-				clear();
+                printf("\t\tDigite um novo Andar: ");
+                scanf("%d", &inteiro);
+                imovel[i].ap.andar = inteiro;
 
-				printf("Andar Atual: %d\n", imovel[indice].ap.andar);
-				printf("Novo Andar: ");
-				scanf("%d%*c", imovel[indice].ap.andar);
-				clear();
+                printf("\t\tDigite um novo Valor do Condominio: ");
+                scanf("%lf", &decimal);
+                imovel[i].ap.valorCon = decimal;
 
-				printf("Condomínio Atual: R$%.2lf\n", imovel[indice].ap.condominio);
-				printf("Novo valor de Condomínio: ");
-				scanf("%lf%*c", imovel[indice].ap.condominio);
-				clear();
+                printf("\t\tDigite um novo Numero de Vagas de Garagem: ");
+                scanf("%d", &inteiro);
+                imovel[i].ap.garagem = inteiro;
+            }else if(!strcmp("TERRENO\n", imovel[i].tipo)){
+                printf("\t\tDigite uma nova Area: ");
+                scanf("%lf", &decimal);
+                imovel[i].ter.area = decimal;
+            }
+        }
+    }
 
-				printf("Garagem Atual: %d\n", imovel[indice].ap.vagas);
-				printf("Novo número de vagas de Garagem: ");
-				scanf("%d%*c", imovel[indice].ap.vagas);
-				clear();
-
-				break;
-			case 3:
-				printf("Área Atual: %.2lfm²\n", imovel[indice].terreno.area);
-				printf("Nova Área: ");
-				scanf("%lf%*c", imovel[indice].terreno.area);
-				clear();
-
-				break;
-			default:
-				printf("Não existe esse tipo de imóvel!\n");
-				break;
-		}
-	}
+    printf("Tem certeza de que quer editar este imovel?\n1 - Sim\n0 - Nao\nDigite sua opcao: ");
+    scanf("%d", &op);
+    if(op == 1){
+        Salvar(imovel);
+    }
 }

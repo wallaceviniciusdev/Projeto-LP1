@@ -15,7 +15,7 @@ typedef struct {
 typedef struct {
     double area;
     int numQuart;
-    int posicao[MAX];
+    char posicao[MAX];
     int andar;
     double valorCon;
     int garagem;
