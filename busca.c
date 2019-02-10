@@ -91,8 +91,8 @@ void Todos(int i, tImovel *imovel){
 }
 
 void DisponiveisVenda(tImovel *imovel){
-    int i, op;
-    char tipo[MAX];
+    int i;
+    char op, tipo[MAX];
 
     TipoImovel:
         printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Venda \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
@@ -103,16 +103,16 @@ void DisponiveisVenda(tImovel *imovel){
         printf("\n\t\t\xb3                                            \xb3");
         printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
         printf("\n\t\tDigite o tipo de imovel: ");
-        scanf("%d", &op);
+        op = getch();
 
     switch(op){
-    case 1:
+    case '1':
         strcpy(tipo, "CASA\n");
         break;
-    case 2:
+    case '2':
         strcpy(tipo, "APARTAMENTO\n");
         break;
-    case 3:
+    case '3':
         strcpy(tipo, "TERRENO\n");
         break;
     default:
@@ -130,8 +130,8 @@ void DisponiveisVenda(tImovel *imovel){
 }
 
 void DisponiveisAluguel(tImovel *imovel){
-    int i, op;
-    char tipo[MAX];
+    int i;
+    char op, tipo[MAX];
 
     TipoImovel:
         printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Venda \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
@@ -142,16 +142,16 @@ void DisponiveisAluguel(tImovel *imovel){
         printf("\n\t\t\xb3                                            \xb3");
         printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
         printf("\n\t\tDigite o tipo de imovel: ");
-        scanf("%d", &op);
+        op = getch();
 
     switch(op){
-    case 1:
+    case '1':
         strcpy(tipo, "CASA\n");
         break;
-    case 2:
+    case '2':
         strcpy(tipo, "APARTAMENTO\n");
         break;
-    case 3:
+    case '3':
         strcpy(tipo, "TERRENO\n");
         break;
     default:

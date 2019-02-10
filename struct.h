@@ -4,6 +4,7 @@
 #define MAX_IMO 100
 #define FALSE 0
 #define TRUE 1
+#include <conio.h>
 
 typedef struct {
     int numPav;

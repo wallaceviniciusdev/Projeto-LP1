@@ -1,7 +1,7 @@
 #include "editar.h"
 
 void Editar(tImovel *imovel){
-    int i, op;
+    int i;
 
     char string[MAX];
     int inteiro;
@@ -117,9 +117,11 @@ void Editar(tImovel *imovel){
         }
     }
 
+    char op;
     printf("\n\n\t\tTem certeza de que quer editar este imovel?\n\t\t1 - Sim\n\t\t0 - Nao\n\t\tDigite sua opcao: ");
-    scanf("%d", &op);
-    if(op == 1){
+    op = getch();
+
+    if(op == '1'){
         Salvar(imovel);
     }else{
         printf("\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");

@@ -3,7 +3,8 @@
 #include "salvar.h"
 
 void Excluir(tImovel *imovel){
-    int i, id = 0, op, flag = FALSE;
+    int i, flag = FALSE;
+    char op;
 
     char titulo[MAX];
     char tituloAnterior[MAX];
@@ -33,10 +34,12 @@ void Excluir(tImovel *imovel){
 
             if(!strcmp(tituloAnterior, titulo)){
                 printf("Tem certeza de que quer apagar %s?\n1 - Sim\n0 - Nao\nDigite sua opcao: ", tituloAnterior);
-                scanf("%d", &op);
+                op = getch();
 
-                imovel[i].verif = FALSE;
-                Salvar(imovel);
+                if(op == '1'){
+                    imovel[i].verif = FALSE;
+                    Salvar(imovel);
+                }
             }
         }
     }else{
