@@ -9,18 +9,23 @@ void Excluir(tImovel *imovel){
     char titulo[MAX];
     char tituloAnterior[MAX];
 
-    printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Lista de Imoveis \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
-    printf("\n\t\t\xb3                                                      \xb3\n");
     for(i = 0; i < MAX_IMO; i++){
         if(imovel[i].verif == TRUE){
-            printf("\t\t\tTitulo: %s", imovel[i].titulo);
             flag = TRUE;
         }
     }
-    printf("\t\t\xb3                                                      \xb3");
-    printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
 
     if(flag){
+        printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Lista de Imoveis \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+        printf("\n\t\t\xb3                                                      \xb3\n");
+        for(i = 0; i < MAX_IMO; i++){
+            if(imovel[i].verif == TRUE){
+                printf("\t\t\tTitulo: %s", imovel[i].titulo);
+            }
+        }
+        printf("\t\t\xb3                                                      \xb3");
+        printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
+
         printf("\n\t\tDigite o TITULO do imovel que deseja editar: ");
         fgets(titulo, MAX, stdin);
         RemoverN(titulo);
@@ -32,13 +37,18 @@ void Excluir(tImovel *imovel){
             Minisculo(tituloAnterior);
 
             if(!strcmp(tituloAnterior, titulo)){
-                printf("Tem certeza de que quer apagar %s?\n1 - Sim\n0 - Nao\nDigite sua opcao: ", tituloAnterior);
+                printf("\n\n\t\tTem certeza de que quer apagar %s?\n\t\t1 - Sim\n\t\t0 - Nao\n\t\tDigite sua opcao: ", tituloAnterior);
                 op = getch();
 
                 if(op == '1'){
                     imovel[i].verif = FALSE;
                     Salvar(imovel);
                 }
+            }else{
+                printf("\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+                printf("\n\t\t\xb3\tNenhum resultado encontrado                 \xb3");
+                printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
+                break;
             }
         }
     }else{

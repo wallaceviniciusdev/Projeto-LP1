@@ -93,137 +93,238 @@ void Todos(int i, tImovel *imovel){
 void DisponiveisVenda(tImovel *imovel){
     int i;
     char op, tipo[MAX];
+    int flag = FALSE;
+    char opcao;
 
-    TipoImovel:
-        printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Venda \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
-        printf("\n\t\t\xb3                                            \xb3");
-        printf("\n\t\t\xb3\t1. Casa                              \xb3");
-        printf("\n\t\t\xb3\t2. Apartamento                       \xb3");
-        printf("\n\t\t\xb3\t3. Terreno                           \xb3");
-        printf("\n\t\t\xb3                                            \xb3");
-        printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
-        printf("\n\t\tDigite o tipo de imovel: ");
-        op = getch();
+    Busca:
+        TipoImovel:
+            printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Venda \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+            printf("\n\t\t\xb3                                            \xb3");
+            printf("\n\t\t\xb3\t1. Casa                              \xb3");
+            printf("\n\t\t\xb3\t2. Apartamento                       \xb3");
+            printf("\n\t\t\xb3\t3. Terreno                           \xb3");
+            printf("\n\t\t\xb3                                            \xb3");
+            printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
+            printf("\n\t\tDigite o tipo de imovel: ");
+            op = getch();
 
-    switch(op){
-    case '1':
-        strcpy(tipo, "CASA\n");
-        break;
-    case '2':
-        strcpy(tipo, "APARTAMENTO\n");
-        break;
-    case '3':
-        strcpy(tipo, "TERRENO\n");
-        break;
-    default:
-        printf("\n\n\t\tEscolha invalida!\n\n");
-        goto TipoImovel;
-        break;
-    }
-
-    printf("\n\n");
-    for(i = 0; i < MAX_IMO; i++){
-        if(imovel[i].operacao && !strcmp(imovel[i].tipo, tipo)){
-            Todos(i, imovel);
+        switch(op){
+        case '1':
+            strcpy(tipo, "CASA\n");
+            break;
+        case '2':
+            strcpy(tipo, "APARTAMENTO\n");
+            break;
+        case '3':
+            strcpy(tipo, "TERRENO\n");
+            break;
+        default:
+            printf("\n\n\t\tEscolha invalida!\n\n");
+            goto TipoImovel;
+            break;
         }
-    }
+
+        printf("\n\n");
+        for(i = 0; i < MAX_IMO; i++){
+            if(imovel[i].operacao && !strcmp(imovel[i].tipo, tipo)){
+                Todos(i, imovel);
+                flag = TRUE;
+            }
+        }
+
+        if(!flag){
+            printf("\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+            printf("\n\t\t\xb3\tNenhum resultado encontrado                 \xb3");
+            printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
+        }
+
+        printf("\n\n\t\t1 - Fazer outra pesquisa de VENDA por TIPO\n\t\t0 - Nao\n\t\tDigite uma opcao: ");
+        opcao = getch();
+        if(opcao == '1'){
+            Carregando();
+            system("cls");
+            goto Busca;
+        }else{
+            system("cls");
+        }
 }
 
 void DisponiveisAluguel(tImovel *imovel){
     int i;
     char op, tipo[MAX];
+    int flag = FALSE;
+    char opcao;
 
-    TipoImovel:
-        printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Venda \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
-        printf("\n\t\t\xb3                                            \xb3");
-        printf("\n\t\t\xb3\t1. Casa                              \xb3");
-        printf("\n\t\t\xb3\t2. Apartamento                       \xb3");
-        printf("\n\t\t\xb3\t3. Terreno                           \xb3");
-        printf("\n\t\t\xb3                                            \xb3");
-        printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
-        printf("\n\t\tDigite o tipo de imovel: ");
-        op = getch();
+    Busca:
+        TipoImovel:
+            printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Venda \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+            printf("\n\t\t\xb3                                            \xb3");
+            printf("\n\t\t\xb3\t1. Casa                              \xb3");
+            printf("\n\t\t\xb3\t2. Apartamento                       \xb3");
+            printf("\n\t\t\xb3\t3. Terreno                           \xb3");
+            printf("\n\t\t\xb3                                            \xb3");
+            printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
+            printf("\n\t\tDigite o tipo de imovel: ");
+            op = getch();
 
-    switch(op){
-    case '1':
-        strcpy(tipo, "CASA\n");
-        break;
-    case '2':
-        strcpy(tipo, "APARTAMENTO\n");
-        break;
-    case '3':
-        strcpy(tipo, "TERRENO\n");
-        break;
-    default:
-        printf("\n\n\t\tEscolha invalida!\n\n");
-        goto TipoImovel;
-        break;
-    }
-
-    printf("\n\n");
-    for(i = 0; i < MAX_IMO; i++){
-        if(!imovel[i].operacao && !strcmp(imovel[i].tipo, tipo)){
-            Todos(i, imovel);
+        switch(op){
+        case '1':
+            strcpy(tipo, "CASA\n");
+            break;
+        case '2':
+            strcpy(tipo, "APARTAMENTO\n");
+            break;
+        case '3':
+            strcpy(tipo, "TERRENO\n");
+            break;
+        default:
+            printf("\n\n\t\tEscolha invalida!\n\n");
+            goto TipoImovel;
+            break;
         }
-    }
+
+        printf("\n\n");
+        for(i = 0; i < MAX_IMO; i++){
+            if(!imovel[i].operacao && !strcmp(imovel[i].tipo, tipo)){
+                Todos(i, imovel);
+                flag = TRUE;
+            }
+        }
+
+        if(!flag){
+            printf("\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+            printf("\n\t\t\xb3\tNenhum resultado encontrado                 \xb3");
+            printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
+        }
+
+        printf("\n\n\t\t1 - Fazer outra pesquisa de ALUGUEL por TIPO\n\t\t0 - Nao\n\t\tDigite uma opcao: ");
+        opcao = getch();
+        if(opcao == '1'){
+            Carregando();
+            system("cls");
+            goto Busca;
+        }else{
+            system("cls");
+        }
 }
 
 void BuscaPorTitulo(tImovel *imovel){
     int i;
     char titulo[MAX];
     char tituloAnterior[MAX];
+    int flag = FALSE;
+    char opcao;
 
-    printf("\n\n\t\tDigite o titulo que deseja buscar: ");
-    fgets(titulo, MAX, stdin);
-    RemoverN(titulo);
-    Minisculo(titulo);
+    Busca:
+        printf("\n\n\t\tDigite o titulo que deseja buscar: ");
+        fgets(titulo, MAX, stdin);
+        RemoverN(titulo);
+        Minisculo(titulo);
 
-    for(i = 0; i < MAX_IMO; i++){
-        strcpy(tituloAnterior, imovel[i].titulo);
-        RemoverN(tituloAnterior);
-        Minisculo(tituloAnterior);
-        if(!strcmp(titulo, tituloAnterior)){
-            Todos(i, imovel);
+        for(i = 0; i < MAX_IMO; i++){
+            strcpy(tituloAnterior, imovel[i].titulo);
+            RemoverN(tituloAnterior);
+            Minisculo(tituloAnterior);
+            if(!strcmp(titulo, tituloAnterior)){
+                Todos(i, imovel);
+                flag = TRUE;
+            }
         }
-    }
+
+        if(!flag){
+            printf("\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+            printf("\n\t\t\xb3\tNenhum resultado encontrado                 \xb3");
+            printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
+        }
+
+        printf("\n\n\t\t1 - Fazer outra pesquisa por TITULO\n\t\t0 - Nao\n\t\tDigite uma opcao: ");
+        opcao = getch();
+        if(opcao == '1'){
+            Carregando();
+            system("cls");
+            goto Busca;
+        }else{
+            system("cls");
+        }
 }
 
 void BuscaPorBairro(tImovel *imovel){
     int i;
     char bairro[MAX];
     char bairroAnterior[MAX];
+    int flag = FALSE;
+    char opcao;
 
-    printf("\n\n\t\tDigite o bairro que deseja buscar: ");
-    fgets(bairro, MAX, stdin);
-    RemoverN(bairro);
-    Minisculo(bairro);
+    Busca:
+        printf("\n\n\t\tDigite o bairro que deseja buscar: ");
+        fgets(bairro, MAX, stdin);
+        RemoverN(bairro);
+        Minisculo(bairro);
 
-    for(i = 0; i < MAX_IMO; i++){
-        strcpy(bairroAnterior, imovel[i].bairro);
-        RemoverN(bairroAnterior);
-        Minisculo(bairroAnterior);
-        if(!strcmp(bairro, bairroAnterior)){
-            Todos(i, imovel);
+        for(i = 0; i < MAX_IMO; i++){
+            strcpy(bairroAnterior, imovel[i].bairro);
+            RemoverN(bairroAnterior);
+            Minisculo(bairroAnterior);
+            if(!strcmp(bairro, bairroAnterior)){
+                Todos(i, imovel);
+                flag = TRUE;
+            }
         }
-    }
+
+        if(!flag){
+            printf("\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+            printf("\n\t\t\xb3\tNenhum resultado encontrado                 \xb3");
+            printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
+        }
+
+        printf("\n\n\t\t1 - Fazer outra pesquisa por BAIRRO\n\t\t0 - Nao\n\t\tDigite uma opcao: ");
+        opcao = getch();
+        if(opcao == '1'){
+            Carregando();
+            system("cls");
+            goto Busca;
+        }else{
+            system("cls");
+        }
 }
 
 void ValorAcima(tImovel *imovel){
     int i;
     double valor;
+    int flag = FALSE;
+    char opcao;
 
-    printf("\n\n\t\tDigite um valor: ");
-    scanf("%lf", &valor);
+    Busca:
+        printf("\n\n\t\tDigite um valor: ");
+        scanf("%lf", &valor);
 
-    for(i = 0; i < MAX_IMO; i++){
-        if(imovel[i].valor > valor){
-            Todos(i, imovel);
+        for(i = 0; i < MAX_IMO; i++){
+            if(imovel[i].valor > valor){
+                Todos(i, imovel);
+                flag = TRUE;
+            }
         }
-    }
+
+        if(!flag){
+            printf("\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+            printf("\n\t\t\xb3\tNenhum resultado encontrado                 \xb3");
+            printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
+        }
+
+        printf("\n\n\t\t1 - Fazer outra pesquisa por VALOR\n\t\t0 - Nao\n\t\tDigite uma opcao: ");
+        opcao = getch();
+        if(opcao == '1'){
+            Carregando();
+            system("cls");
+            goto Busca;
+        }else{
+            system("cls");
+        }
 }
 
 void Busca(int tipo, tImovel *imovel){
     int i;
+
     if(tipo == 1){
         printf("\n\n");
         for(i = 0; i < MAX_IMO; i++){

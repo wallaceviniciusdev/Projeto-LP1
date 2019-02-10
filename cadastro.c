@@ -94,7 +94,7 @@ void Cadastro(int tipo, tImovel *imovel){
                 printf("\t\t\tPosicao: ");
                 fgets(imovel[i].ap.posicao, MAX, stdin);
 
-                printf("\t\t\tAndar: ");
+                printf("\t\t\tAndar (0 - Terreo): ");
                 scanf("%d", &imovel[i].ap.andar);
 
                 printf("\t\t\tValor do Condominio: ");

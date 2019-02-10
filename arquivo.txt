@@ -12,3 +12,30 @@ Agua Fria
 4
 90.00
 85.00
+1
+APARTAMENTO
+Apartamento bem moderno
+Rua Monsenhor Julio Maria
+Recife
+Derby
+584
+52010140
+150000.00
+1
+75.50
+4
+Sul
+2
+100.00
+2
+1
+TERRENO
+Terreno otimo para Comicio
+Rua Ulisses Caldas
+Natal
+Centro
+81
+59025090
+1450.00
+0
+150.00

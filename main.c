@@ -2,19 +2,10 @@
 #include <stdlib.h>
 #include "menu.h"
 
-tImovel imovel[MAX_IMO];
-
 int main(){
-    int i, opcao;            
-
-    //Inicializa valores estrategicos com 0 para marcar os espaços disponveis na lista
-    for(i = 0; i < MAX_IMO; i++){
-        imovel[i].verif = FALSE;
-        imovel[i].casa.areaC = 0;
-        imovel[i].ap.area = 0;
-        imovel[i].ter.area = 0;
-    }
-
+    tImovel imovel[MAX_IMO];
+    
+    Inicializacao(imovel); //Inicializa valores estrategicos com 0 para marcar os espaços disponveis na lista
     Listagem(imovel); //Preenche a lista com os dados do arquivo
-    Menu(imovel);
+    Menu(imovel); // Chama a funcao e Menu
 }

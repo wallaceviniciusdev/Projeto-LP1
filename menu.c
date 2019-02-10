@@ -1,5 +1,16 @@
 #include "menu.h"
 
+void Inicializacao(tImovel *imovel){
+    int i;
+    
+    for(i = 0; i < MAX_IMO; i++){
+        imovel[i].verif = FALSE;
+        imovel[i].casa.areaC = 0;
+        imovel[i].ap.area = 0;
+        imovel[i].ter.area = 0;
+    }
+}
+
 void gotoxy(int x, int y){
     COORD coord;
     coord.X = x;
@@ -16,7 +27,7 @@ void Carregando(){
     printf("Carregando...");
     gotoxy(25, 5);
     for(r = 0; r < 20; r++){
-        for(q = 0; q < 5000000; q++);
+        for(q = 0; q < 4000000; q++);
         printf("%c", 178);
     }
 }
@@ -139,7 +150,7 @@ int Menu(tImovel *imovel){
             return 1;
         }
 
-        printf("\n\n\t\t1 - Fazer outra operacao\n\t\t0 - Sair\n\t\tDigite uma opcao: ");
+        printf("\n\n\n\t\t1 - Voltar ao Inicio\n\t\t0 - Sair\n\t\tDigite uma opcao: ");
         opcao = getch();
         if(opcao == '1'){
             Carregando();

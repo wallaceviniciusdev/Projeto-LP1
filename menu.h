@@ -14,6 +14,7 @@
 #include "struct.h"
 
 int Menu(tImovel *imovel);
+void Inicializacao(tImovel *imovel);
 void Carregando();
 
 #endif
