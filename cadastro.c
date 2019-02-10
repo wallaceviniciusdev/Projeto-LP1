@@ -47,7 +47,6 @@ void Cadastro(int tipo, tImovel *imovel){
 
                 char tipo[] = "CASA\n";
                 strcpy(imovel[i].tipo, tipo);
-                getchar();
 
                 Imovel(i, imovel);
 
@@ -82,7 +81,6 @@ void Cadastro(int tipo, tImovel *imovel){
 
                 char tipo[] = "APARTAMENTO\n";
                 strcpy(imovel[i].tipo, tipo);
-                getchar();
 
                 Imovel(i, imovel);
 
@@ -116,7 +114,6 @@ void Cadastro(int tipo, tImovel *imovel){
 
                 char tipo[] = "TERRENO\n";
                 strcpy(imovel[i].tipo, tipo);
-                getchar();
 
                 Imovel(i, imovel);
 

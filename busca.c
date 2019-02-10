@@ -173,7 +173,6 @@ void BuscaPorTitulo(tImovel *imovel){
     char titulo[MAX];
     char tituloAnterior[MAX];
 
-    getchar();
     printf("\n\n\t\tDigite o titulo que deseja buscar: ");
     fgets(titulo, MAX, stdin);
     RemoverN(titulo);
@@ -194,7 +193,6 @@ void BuscaPorBairro(tImovel *imovel){
     char bairro[MAX];
     char bairroAnterior[MAX];
 
-    getchar();
     printf("\n\n\t\tDigite o bairro que deseja buscar: ");
     fgets(bairro, MAX, stdin);
     RemoverN(bairro);
