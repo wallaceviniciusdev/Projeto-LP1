@@ -4,6 +4,7 @@
 #include "struct.h"
 #include "salvar.h"
 #include "busca.h"
+#include "menu.h"
 
 void Editar(tImovel *imovel);
 

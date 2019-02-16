@@ -1,8 +1,7 @@
 #include "excluir.h"
-#include "busca.h"
-#include "salvar.h"
 
 void Excluir(tImovel *imovel){
+    Carregando();
     int i, flag = FALSE;
     char op;
 

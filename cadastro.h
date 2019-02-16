@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "struct.h"
 #include "salvar.h"
+#include "menu.h"
 #include <string.h>
 #include <ctype.h>
 

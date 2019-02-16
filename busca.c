@@ -2,6 +2,7 @@
 
 void Minisculo(char *string){
     int i;
+
     for(i = 0; i < string[i]; i++){
         string[i] = toupper(string[i]);
     }
@@ -323,12 +324,27 @@ void ValorAcima(tImovel *imovel){
 }
 
 void Busca(int tipo, tImovel *imovel){
-    int i;
+    Carregando();
+    int i, flag = FALSE;
 
     if(tipo == 1){
         printf("\n\n");
         for(i = 0; i < MAX_IMO; i++){
-            Todos(i, imovel);
+            if(imovel[i].verif == TRUE){
+                flag = TRUE;
+            }
+        }
+
+        if(flag){
+            for(i = 0; i < MAX_IMO; i++){
+                if(imovel[i].verif == TRUE){
+                    Todos(i, imovel);
+                }
+            }
+        }else{
+            printf("\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
+            printf("\n\t\t\xb3\tNenhum resultado encontrado                 \xb3");
+            printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9\n");
         }
     }else if(tipo == 2){
         DisponiveisVenda(imovel);

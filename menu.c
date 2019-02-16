@@ -27,9 +27,10 @@ void Carregando(){
     printf("Carregando...");
     gotoxy(25, 5);
     for(r = 0; r < 20; r++){
-        for(q = 0; q < 4000000; q++);
+        for(q = 0; q < 2000000; q++);
         printf("%c", 178);
     }
+    system("cls");
 }
 
 int Menu(tImovel *imovel){
@@ -64,22 +65,18 @@ int Menu(tImovel *imovel){
             printf("\n\t\tTipo de imovel para cadastar: ");
             opcao = getch();
             if(opcao == '1'){
-                Carregando();
                 system("cls");
                 Cadastro(1, imovel);
                 break;
             }else if(opcao == '2'){
-                Carregando();
                 system("cls");
                 Cadastro(2, imovel);
                 break;
             }else if(opcao == '3'){
-                Carregando();
                 system("cls");
                 Cadastro(3, imovel);
                 break;
             }else if(opcao == '0'){
-                Carregando();
                 system("cls");
                 goto Inicio;
             }
@@ -101,55 +98,50 @@ int Menu(tImovel *imovel){
             printf("\n\t\tTipo de busca: ");
             opcao = getch();
             if(opcao == '0'){
-                Carregando();
                 system("cls");
                 goto Inicio;
             }else if(opcao == '1'){
-                Carregando();
                 system("cls");
                 Busca(1, imovel);
                 break;
             }else if(opcao == '2'){
-                Carregando();
                 system("cls");
                 Busca(2, imovel);
                 break;
             }else if(opcao == '3'){
-                Carregando();
                 system("cls");
                 Busca(3, imovel);
                 break;
             }else if(opcao == '4'){
-                Carregando();
                 system("cls");
                 Busca(4, imovel);
                 break;
             }else if(opcao == '5'){
-                Carregando();
                 system("cls");
                 Busca(5, imovel);
                 break;
             }else if(opcao == '6'){
-                Carregando();
                 system("cls");
                 Busca(6, imovel);
                 break;
             }
             break;
         case '3':
-            Carregando();
             system("cls");
             Editar(imovel);
             break;
         case '4':
-            Carregando();
             system("cls");
             Excluir(imovel);
             break;
         case '0':
             return 1;
+        default:
+            system("cls");
+            goto Inicio;
         }
 
+        FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE)); // limpa o buffer antes de executar o getch();
         printf("\n\n\n\t\t1 - Voltar ao Inicio\n\t\t0 - Sair\n\t\tDigite uma opcao: ");
         opcao = getch();
         if(opcao == '1'){
