@@ -94,10 +94,11 @@ void Todos(int i, tImovel *imovel){
 void DisponiveisVenda(tImovel *imovel){
     int i;
     char op, tipo[MAX];
-    int flag = FALSE;
+    int flag;
     char opcao;
 
     Busca:
+    	flag = FALSE;
         TipoImovel:
             printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Venda \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
             printf("\n\t\t\xb3                                            \xb3");
@@ -126,10 +127,18 @@ void DisponiveisVenda(tImovel *imovel){
         }
 
         printf("\n\n");
+
+        //Verifica a existencia de imoveis
+        for(i = 0; i < MAX_IMO; i++){
+            if(imovel[i].operacao && !strcmp(imovel[i].tipo, tipo)){
+            	flag = TRUE;
+            }
+        }
+
+        //Mostra os imoveis disponiveis pra alugar pelo tipo escolhido
         for(i = 0; i < MAX_IMO; i++){
             if(imovel[i].operacao && !strcmp(imovel[i].tipo, tipo)){
                 Todos(i, imovel);
-                flag = TRUE;
             }
         }
 
@@ -153,10 +162,11 @@ void DisponiveisVenda(tImovel *imovel){
 void DisponiveisAluguel(tImovel *imovel){
     int i;
     char op, tipo[MAX];
-    int flag = FALSE;
+    int flag;
     char opcao;
 
     Busca:
+    	flag = FALSE;
         TipoImovel:
             printf("\n\n\t\t\xda\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4 Venda \xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xbf");
             printf("\n\t\t\xb3                                            \xb3");
@@ -185,10 +195,18 @@ void DisponiveisAluguel(tImovel *imovel){
         }
 
         printf("\n\n");
+
+        //Verifica a existencia de imoveis
+        for(i = 0; i < MAX_IMO; i++){
+            if(!imovel[i].operacao && !strcmp(imovel[i].tipo, tipo)){
+            	flag = TRUE;
+            }
+        }
+
+        //Mostra os imoveis disponiveis pra alugar pelo tipo escolhido
         for(i = 0; i < MAX_IMO; i++){
             if(!imovel[i].operacao && !strcmp(imovel[i].tipo, tipo)){
                 Todos(i, imovel);
-                flag = TRUE;
             }
         }
 
@@ -213,10 +231,11 @@ void BuscaPorTitulo(tImovel *imovel){
     int i;
     char titulo[MAX];
     char tituloAnterior[MAX];
-    int flag = FALSE;
+    int flag;
     char opcao;
 
     Busca:
+    	flag = FALSE;
         printf("\n\n\t\tDigite o titulo que deseja buscar: ");
         fgets(titulo, MAX, stdin);
         RemoverN(titulo);
@@ -253,10 +272,11 @@ void BuscaPorBairro(tImovel *imovel){
     int i;
     char bairro[MAX];
     char bairroAnterior[MAX];
-    int flag = FALSE;
+    int flag;
     char opcao;
 
     Busca:
+    	flag = FALSE;
         printf("\n\n\t\tDigite o bairro que deseja buscar: ");
         fgets(bairro, MAX, stdin);
         RemoverN(bairro);
@@ -292,10 +312,11 @@ void BuscaPorBairro(tImovel *imovel){
 void ValorAcima(tImovel *imovel){
     int i;
     double valor;
-    int flag = FALSE;
+    int flag;
     char opcao;
 
     Busca:
+    	flag = FALSE;
         printf("\n\n\t\tDigite um valor: ");
         scanf("%lf", &valor);
 

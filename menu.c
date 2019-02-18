@@ -64,6 +64,7 @@ int Menu(tImovel *imovel){
             printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
             printf("\n\t\tTipo de imovel para cadastar: ");
             opcao = getch();
+            FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE)); // limpa o buffer antes de executar o getch();
             if(opcao == '1'){
                 system("cls");
                 Cadastro(1, imovel);
@@ -97,6 +98,7 @@ int Menu(tImovel *imovel){
             printf("\n\t\t\xc0\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xc4\xd9");
             printf("\n\t\tTipo de busca: ");
             opcao = getch();
+            FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE)); // limpa o buffer antes de executar o getch();
             if(opcao == '0'){
                 system("cls");
                 goto Inicio;

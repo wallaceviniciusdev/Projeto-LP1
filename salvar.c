@@ -10,7 +10,6 @@ void Salvar(tImovel *imovel){
 
     for(i = 0; i < MAX_IMO; i++){
         if(imovel[i].casa.areaC != 0 || imovel[i].ap.area != 0 || imovel[i].ter.area != 0){
-            system("cls");
             fprintf(file, "%d\n", imovel[i].verif);
             fprintf(file, "%s", imovel[i].tipo);
             fprintf(file, "%s", imovel[i].titulo);
