@@ -1,18 +1,18 @@
-# Cadastro de Imoveis
+# Real Estate Registration
 
-Programa constrido na linguagem C destinado para o primeiro projeto da disciplina de Laboratório de Linguagem de Programação I do curso de Engenharia de Computação da UFPB.
+Program built in the C language destined for the first project of the discipline of Laboratory of Programming Language I of the course of Computer Engineering of the UFPB.
 
-### Como compilar no Terminal
+### How to compile in Terminal
 
 ```sh
-$ cd Caminho da pasta onde está o projeto (Ex: Desktop/Projeto-LP1)
+$ cd Folder path where the project is (Ex: Desktop/Projeto-LP1)
 $ gcc *.c -o exe
 $ ./exe
 ```
 
-### Como compilar em IDE
+### How to compile in some IDE
 
 ```sh
-Você pode usar qualquer IDE disponível para Windows, basta adicionar todos os arquivos .c e .h em um projeto e logo em seguida ir ao arquivo index.c e executar o programa.
+You can use any IDE available for Windows by simply adding all the .c and .h files to a project and then going to the main.c file and running the program.
 ```
 
